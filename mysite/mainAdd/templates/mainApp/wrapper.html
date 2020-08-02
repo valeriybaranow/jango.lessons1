@@ -3,12 +3,26 @@
  <head>
   <meta charset="utf-8" />
   <title>Заголовок страницы</title>
-  <!--[if IE]>
-   <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-  <![endif]-->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  {% load static %}
+  <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}" type="text/css">
  </head>
  <body style="background: silver;">
-    {% block content %}
-    {% endblock %}
+    <div class="jumbotron">
+        <div class="container">
+          <h1>{% include "mainApp/includes/some_html.html" %}</h1>
+          {% block content %}
+          {% endblock %}
+          <p>
+            <a href="/" class="btn btn-success btn-lg">Главная страница</a>
+            <a href="/news" class="btn btn-primary btn-lg">Узнать больше &raquo;</a>
+          </p>
+        </div>
+      </div>
+      <div class="container">
+        <img src="{% static 'mainApp/image/mercedes.png' %}" class="img-thumbnail">
+        <hr>
+        &copy; Все права защищены 2018
+      </div>
  </body>
 </html>
